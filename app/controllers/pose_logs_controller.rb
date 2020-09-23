@@ -1,0 +1,2 @@
+class PoseLogsController < ApplicationController
+end

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  description: MyString
+  start_date: 2020-09-15 11:33:43
+  completion: false
+
+two:
+  user: two
+  description: MyString
+  start_date: 2020-09-15 11:33:43
+  completion: false

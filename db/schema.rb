@@ -20,16 +20,16 @@ ActiveRecord::Schema.define(version: 2020_09_23_173120) do
     t.bigint "pose_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "like"
+    t.boolean "like", default: false
     t.index ["pose_id"], name: "index_favorite_poses_on_pose_id"
     t.index ["user_id"], name: "index_favorite_poses_on_user_id"
   end
 
   create_table "pose_goals", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.string "pose_name"
     t.string "description"
-    t.datetime "start_date"
-    t.boolean "completion"
+    t.boolean "completion", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_pose_goals_on_user_id"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_173120) do
 
   create_table "pose_logs", force: :cascade do |t|
     t.bigint "pose_goal_id", null: false
-    t.date "date"
+    t.string "image"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_173120) do
     t.string "video_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "like"
+    t.boolean "like", default: false
   end
 
   create_table "users", force: :cascade do |t|

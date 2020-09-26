@@ -580,15 +580,18 @@ end
 
 puts "Done Seeding poses"
 
-# {
-#     pose_name: "",
-#     sanskirt_name: "",
-#     translation: [],
-#     category: "",
-#     difficulty: "",
-#     description: "",
-#     benefits: "",
-#     image_url: "",
-#     video_url: ""
-# }
 
+users = [
+  {
+    name: "Barbara",
+    username: "lilb",
+    email: "barb@gmail.com",
+    password: "asdf"
+  }
+]
+
+users.each do |user|
+    User.create(user)
+end
+
+puts "Done Seeding users"

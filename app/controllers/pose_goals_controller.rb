@@ -12,7 +12,7 @@ class PoseGoalsController < ApplicationController
         
         
         def create 
-          posegoal = PoseGoal.create(pose_name: params[:pose_name], description: params[:description], user_id: params[:user_id])
+          posegoal = PoseGoal.create(pose_name: params[:pose_name], description: params[:description], completion: params[:completion], user_id: params[:user_id])
           if posegoal.save
              render json: posegoal
           else
@@ -21,10 +21,20 @@ class PoseGoalsController < ApplicationController
     
         end
     
+
+        def update
+          # byebug
+          posegoal = PoseGoal.find_by(id: params[:id])
+          posegoal.update(completion: params[:completion])
+          render json: posegoal
+        end
+
+
+
         def destroy
             posegoal = PoseGoal.find_by(id: params[:id])
             posegoal.destroy()
-          render json: posegoal
+            render json: posegoal
         end
   
 

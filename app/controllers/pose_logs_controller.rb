@@ -1,7 +1,7 @@
 class PoseLogsController < ApplicationController
     def index
-        poselogs = PoseLog.all
-        render json: poselogs
+        @poselogs = PoseLog.all
+        render json: @poselogs
       end
   
       def show
@@ -11,12 +11,12 @@ class PoseLogsController < ApplicationController
       
       
       def create 
-        image = Cloudinary::Uploader.upload(params[:image])
-        poselog = PoseLog.create(pose_goal_id: params[:pose_goal_id], description: params[:description], image: image["url"])
+        # image = Cloudinary::Uploader.upload(params[:image])
+        poselog = PoseLog.create(pose_goal_id: params[:pose_goal_id], description: params[:description], image: params[:image])
         if poselog.save
            render json: poselog
         else
-          render json: {error: 'Could not create that pose'}, status: 422
+          render json: {error: 'Could not create that log'}, status: 422
         end
   
       end

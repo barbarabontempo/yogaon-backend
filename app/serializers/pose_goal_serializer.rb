@@ -1,5 +1,5 @@
 class PoseGoalSerializer < ActiveModel::Serializer
-    attributes :pose_name, :description, :completion, :created_at
+    attributes :id, :pose_name, :description, :completion, :date, :user_id, :pose_logs
    
     has_many :pose_logs
   end
